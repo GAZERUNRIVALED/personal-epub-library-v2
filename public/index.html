@@ -1,0 +1,41 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#121212"><title>Personal EPUB Library</title>
+<link rel="stylesheet" href="styles/main.css"></head><body>
+<main id="dash">
+<header><h1>Personal EPUB Library</h1><span class="hb"><button id="setBtn" title="Pengaturan &amp; source MiruTime">⚙</button><button id="importBtn" class="gold">+ Import EPUB</button></span><input type="file" id="file" accept=".epub,application/epub+zip" multiple hidden></header>
+<div class="tools"><input id="search" type="search" placeholder="Cari judul atau penulis…">
+<select id="sort"><option value="imported">Terbaru diimpor</option><option value="title">Judul</option><option value="author">Penulis</option></select></div>
+<p id="stat" class="muted"></p>
+<div id="prog" hidden><span id="progText"></span><div class="bar"><i id="progFill"></i></div></div>
+<div id="grid"></div>
+<div id="empty" class="empty" hidden><p>📚</p><p>Perpustakaan masih kosong.</p><p class="muted">Tekan “Import EPUB” untuk menambahkan buku.</p></div>
+</main>
+<section id="reader" hidden>
+<div class="top"><button id="rBack">←</button><div class="ttl"><b id="rTitle"></b><small id="rChap"></small></div>
+<button id="rMode" title="Ganti mode">Aa</button><button id="rSet">⚙</button><button id="rList">☰</button></div>
+<iframe id="frame" sandbox="allow-same-origin" title="Chapter"></iframe>
+<div class="bottom"><button id="rPrev">‹ Sebelumnya</button><span id="rPos"></span><button id="rNext">Berikutnya ›</button></div>
+<div id="drawer" class="panel" hidden><div class="ph"><input id="chSearch" type="search" placeholder="Cari chapter…"><button id="chClose">✕</button></div>
+<div id="chBox"><div id="chInner"></div></div></div>
+<div id="setPanel" class="panel sp" hidden><div class="ph"><b>Pengaturan baca</b><button id="setClose">✕</button></div>
+<label>Tema<select id="sTheme"><option value="dark">Dark</option><option value="light">Light</option><option value="sepia">Sepia</option></select></label>
+<label>Font<select id="sFont"><option value="Georgia, serif">Serif</option><option value="system-ui, sans-serif">Sans</option><option value="'Courier New', monospace">Mono</option></select></label>
+<label>Ukuran<input id="sSize" type="range" min="14" max="32"></label>
+<label>Line height<input id="sLh" type="range" min="1.3" max="2.2" step="0.1"></label>
+<label>Lebar teks<input id="sWidth" type="range" min="480" max="1000" step="20"></label>
+<p class="muted">Pengaturan ini berlaku di mode Text Reader (tombol Aa).</p></div>
+</section>
+<dialog id="detail"><div id="dBody"></div></dialog>
+<dialog id="cfg"><h3>Pengaturan &amp; MiruTime</h3>
+<label>Admin API key (disimpan hanya di browser ini)<input id="cKey" type="password" autocomplete="off"></label>
+<div class="row2"><button id="cSave" class="gold">Simpan &amp; tes</button></div><p id="cMsg" class="muted small"></p>
+<label>URL source MiruTime<input id="cUrl" readonly></label>
+<div class="row2"><button id="cCopy">Salin URL</button><a id="cDl" href="#" download="personal_epub_library.lua"><button type="button">Unduh .lua</button></a></div>
+<p class="muted small">Privasi: novel yang dipublikasikan dapat dibaca siapa pun yang tahu URL server ini (API baca bersifat publik agar MiruTime bisa mengakses). Jangan publikasikan buku yang harus tetap privat.</p>
+<button id="cClose">Tutup</button></dialog>
+<div id="toast" hidden></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="config.js"></script><script src="scripts/database.js"></script><script src="scripts/epub-parser.js"></script><script src="scripts/asset-resolver.js"></script>
+<script src="scripts/library.js"></script><script src="scripts/reader.js"></script><script src="scripts/publisher.js"></script><script src="scripts/app.js"></script>
+</body></html>
