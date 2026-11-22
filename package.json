@@ -1,0 +1,1 @@
+{"name":"personal-epub-library","private":true,"version":"2.0.0","scripts":{"dev":"wrangler dev","deploy":"wrangler deploy","db:migrate":"wrangler d1 migrations apply epub-library --remote","pages":"wrangler pages deploy public --project-name personal-epub-library"},"devDependencies":{"wrangler":"^4.0.0"}}

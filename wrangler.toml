@@ -1,0 +1,23 @@
+name = "personal-epub-library-api"
+main = "worker/index.js"
+compatibility_date = "2025-01-01"
+
+[vars]
+# Origin frontend Pages yang boleh memanggil API (pisahkan koma bila lebih dari satu), mis. "https://epub-library.pages.dev"
+ALLOWED_ORIGIN = ""
+
+[[d1_databases]]
+binding = "DB"
+database_name = "epub-library"
+database_id = "GANTI-DENGAN-ID-D1"   # dari: npx wrangler d1 create epub-library
+migrations_dir = "migrations"
+
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "epub-library"
+
+# Agar file .lua bisa di-import sebagai teks
+[[rules]]
+type = "Text"
+globs = ["**/*.lua"]
+fallthrough = true
